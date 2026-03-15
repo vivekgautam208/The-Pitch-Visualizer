@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pitch Visualizer</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#6a11cb,#2575fc);
+margin:0;
+text-align:center;
+}
+
+
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#1e1e2f;
+color:white;
+padding:15px 30px;
+}
+
+.navbar h2{
+margin:0;
+}
+
+.nav-info{
+font-size:14px;
+text-align:right;
+}
+
+
+
+header{
+padding:25px;
+color:white;
+}
+
+
+
+.container{
+background:white;
+width:70%;
+margin:auto;
+padding:30px;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+textarea{
+width:80%;
+height:120px;
+padding:10px;
+font-size:16px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:15px;
+padding:12px 25px;
+font-size:16px;
+border:none;
+border-radius:6px;
+background:#2575fc;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#6a11cb;
+}
+
+
+
+.storyboard{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:40px;
+}
+
+.panel{
+background:white;
+margin:15px;
+padding:15px;
+width:300px;
+border-radius:8px;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+.panel img{
+width:100%;
+border-radius:6px;
+}
+
+.caption{
+margin-top:10px;
+}
+
+
+
+footer{
+margin-top:40px;
+background:#1e1e2f;
+color:white;
+padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="navbar">
+
+<h2>Pitch Visualizer</h2>
+
+<div class="nav-info">
+<b>Vivek Gautam</b><br>
+Email: vivekgautam2021@gmail.com
+</div>
+
+</div>
+
+<header>
+
+<h1>AI Storyboard Generator</h1>
+<p>Turn your story into a visual storyboard using AI</p>
+
+</header>
+
+<div class="container">
+
+<form method="POST">
+
+<textarea name="story" placeholder="Paste your story here..."></textarea>
+
+<br>
+
+<button type="submit">Generate Storyboard</button>
+
+</form>
+
+</div>
+
+<div class="storyboard">
+
+{% for i in range(images|length) %}
+
+<div class="panel">
+
+<img src="{{ images[i] }}" alt="scene image">
+
+<div class="caption">
+{{ captions[i] }}
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<footer>
+
+<p>Developed by Vivek Gautam</p>
+
+</footer>
+
+</body>
+</html>
