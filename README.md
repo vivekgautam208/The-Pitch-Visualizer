@@ -5,6 +5,22 @@
 **Pitch Visualizer** is an AI-powered web application that converts a narrative story into a **visual storyboard**. The goal of this project is to help users transform plain text into a sequence of images that visually represent the key moments of the story.
 
 The system takes a paragraph as input, automatically breaks it into meaningful scenes, generates descriptive prompts, and produces images for each scene using an AI image generation model. The final output is displayed as a **multi-panel storyboard** where each panel contains an image and the corresponding text segment.
+Project Screenshots
+
+Below are some screenshots demonstrating the working of the Empathy Engine web interface.
+
+1. Application Interface
+
+![The Pitch Visualizer UI](pitch-visualizer/Screenshots/interface1.png)
+
+
+2. Text Input and Emotion Detection
+
+![The Pitch Visualizer UI](pitch-visualizer/Screenshots/input1.png)
+
+
+3. Generated Voice Output
+![The Pitch Visualizer UI](pitch-visualizer/Screenshots/output1.png)
 
 This tool can be useful for:
 
