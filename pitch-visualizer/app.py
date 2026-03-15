@@ -3,16 +3,16 @@ import nltk
 import requests
 import os
 
-
-nltk.download('punkt')
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 
 app = Flask(__name__)
 
-
 API_URL = "https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-xl-base-1.0"
 
-API_KEY = "PLEASE_WRITE_API_KEY"
-#github restict to write API_KEY
+API_KEY = os.environ.get("HF_API_KEY")
 
 headers = {
     "Authorization": f"Bearer {API_KEY}",
@@ -42,13 +42,7 @@ def generate_image(prompt, filename):
 
 
 def create_prompt(sentence):
-
-    return f"""
-    cinematic digital illustration,
-    storytelling scene,
-    high quality concept art,
-    {sentence}
-    """
+    return f"cinematic digital illustration, storytelling scene, high quality concept art, {sentence}"
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -76,4 +70,5 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
