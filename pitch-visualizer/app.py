@@ -7,7 +7,6 @@ try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
     nltk.download('punkt')
-    nltk.download('punkt_tab')
 
 app = Flask(__name__)
 
